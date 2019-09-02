@@ -1,0 +1,21 @@
+App\Domain\Elevator\Model\Elevator:
+    type: entity
+    table: elevator
+    repositoryClass:  App\Infrastructure\Repository\ElevatorRepository
+    id:
+        id:
+            type: string
+            length: 38
+            nullable: false
+
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: false
+        updatedAt:
+            type: datetime
+            nullable: false

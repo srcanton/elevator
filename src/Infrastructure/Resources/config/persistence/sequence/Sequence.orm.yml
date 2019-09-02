@@ -1,0 +1,45 @@
+App\Domain\Sequence\Model\Sequence:
+    type: entity
+    table: sequence
+    repositoryClass:  App\Infrastructure\Repository\SequenceRepository
+    id:
+        id:
+            type: string
+            length: 38
+            nullable: false
+
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+        begin:
+            type: integer
+            length: 80
+            nullable: false
+        end:
+            type: integer
+            length: 80
+            nullable: false
+        interval:
+            type: integer
+            length: 80
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: false
+        updatedAt:
+            type: datetime
+            nullable: false
+
+    manyToOne:
+        originFloor:
+            targetEntity: App\Domain\Floor\Model\Floor
+            joinColumn:
+                name: origin_floor
+                referencedColumnName: id
+        destinyFloor:
+            targetEntity: App\Domain\Floor\Model\Floor
+            joinColumn:
+                name: destiny_floor
+                referencedColumnName: id

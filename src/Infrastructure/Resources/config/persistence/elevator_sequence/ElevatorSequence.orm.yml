@@ -1,0 +1,27 @@
+App\Domain\ElevatorSequence\Model\ElevatorSequence:
+    type: entity
+    table: elevator_sequence
+    repositoryClass:  App\Infrastructure\Repository\ElevatorSequenceRepository
+    id:
+        id:
+            type: string
+            length: 38
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: false
+        updatedAt:
+            type: datetime
+            nullable: false
+
+    manyToOne:
+        elevator:
+            targetEntity: App\Domain\Elevator\Model\Elevator
+            joinColumn:
+                name: elevator_id
+                referencedColumnName: id
+        sequence:
+            targetEntity: App\Domain\Sequence\Model\Sequence
+            joinColumn:
+                name: sequence_id
+                referencedColumnName: id
